@@ -13,6 +13,9 @@ gem 'jbuilder', '~> 2.7'
 
 gem "haml-rails", "~> 2.0"
 gem 'bootstrap', '~> 5.0.1'
+gem 'font-awesome-sass', '~> 5.12.0'
+gem 'jquery-rails'
+
 
 
 gem 'bootsnap', '>= 1.4.2', require: false
