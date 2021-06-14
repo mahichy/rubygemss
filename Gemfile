@@ -16,7 +16,7 @@ gem 'bootstrap', '~> 5.0.1'
 # gem 'font-awesome-sass', '~> 5.12.0'
 gem 'jquery-rails'
 gem 'simple_form'
-
+gem 'faker'
 
 
 
