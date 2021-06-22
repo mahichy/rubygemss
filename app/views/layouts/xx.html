@@ -1,0 +1,18 @@
+/ %hr
+/ %h2
+/   Top Rated courses
+/   .card-columns
+/     - @courses.each do |course|
+/     = render 'courses/course', course: course
+/ %hr
+/ %h2
+/   Most Recent
+/   .card-columns
+/     - @courses.each do |course|
+/     = render 'courses/course', course: course
+%hr
+%h2
+  Populer courses
+.card-columns
+  - @courses.each do |course|
+  = render 'courses/course', course: course
