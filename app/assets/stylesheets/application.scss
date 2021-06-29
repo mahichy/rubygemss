@@ -23,3 +23,10 @@ $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
 @import '@fortawesome/fontawesome-free/scss/regular';
 @import '@fortawesome/fontawesome-free/scss/brands';
 @import '@fortawesome/fontawesome-free/scss/v4-shims';
+
+#table1 {
+    @extend .table, .table-hover, .table-responsive-xl, .table-bordered, .table-sm, .bg-white
+}
+
+.form-control.is-invalid{ background-image: none; }
+.form-control.is-valid{ background-image: none; }
