@@ -22,4 +22,6 @@ belongs_to :user
   def self.levels
   	LEVELS.map { |level| [level, level] }
   end
+
+  include PublicActivity::Model
 end
