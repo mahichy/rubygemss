@@ -1,3 +1,14 @@
+GIT
+  remote: https://github.com/chaps-io/public_activity
+  revision: bffb84624e2572599554de7551237271829cbc9d
+  tag: v1.6.2
+  specs:
+    public_activity (1.6.2)
+      actionpack (>= 3.0.0)
+      activerecord (>= 3.0)
+      i18n (>= 0.5.0)
+      railties (>= 3.0.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -256,6 +267,7 @@ DEPENDENCIES
   jbuilder (~> 2.7)
   jquery-rails
   pg
+  public_activity!
   puma (~> 4.1)
   rails (~> 6.0.3, >= 6.0.3.7)
   ransack
