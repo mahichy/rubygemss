@@ -22,7 +22,7 @@ gem 'friendly_id', '~> 5.4.0'
 gem 'hirb'
 gem 'ransack'
 # gem 'public_activity'
-gem 'public_activity', git: 'https://github.com/chaps-io/public_activity', tag: 'v1.6.2'
+gem 'public_activity', '~> 1.5.0'
 
 
 
