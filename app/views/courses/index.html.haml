@@ -1,7 +1,14 @@
 %h1 
-courses
+
 = @courses.count
 
+%h2
+  .text-center
+    Courses
+    .badge.badge-info
+    =@courses.count
+
+%p 
 .row
   .col-md-2
     / = search_form_for @q do |f|

@@ -1,0 +1,22 @@
+%hr
+%footer
+	.container
+		.row
+			.col-md-4
+				copyright
+				@
+				= Time.now.year
+				CoursePlatform Sp. z o.o.
+				.row
+				.fa.fa-envlope
+				= mail_to 'oshim@yahoo.com'
+				.row
+			.col-md-4
+				privacy policy
+				.row
+				Terms and conditions
+			.col-md-4
+				about us
+				.row
+				= link_to 'Teach on EDURGE', new_course_path
+%br
