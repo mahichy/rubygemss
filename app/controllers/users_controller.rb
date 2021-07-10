@@ -8,9 +8,13 @@ class UsersController < ApplicationController
 	end
 
 	def edit
+    authorize @course
+
 	end
 
 	def update
+    authorize @course
+		
 		if @user.update(user_params)
 			redirect_to users_path, notice: 'User roles were successfully updated.'
 		else
