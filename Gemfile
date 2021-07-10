@@ -23,6 +23,8 @@ gem 'hirb'
 gem 'ransack'
 # gem 'public_activity'
 gem 'public_activity', '~> 1.5.0'
+gem "rolify"
+
 
 
 
