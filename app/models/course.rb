@@ -1,16 +1,16 @@
 class Course < ApplicationRecord
-validates :description,  presence: true, length: { :minimum => 5 }
-validates :title, :short_description, :language, :price, :level, presence: true
+  validates :description,  presence: true, length: { :minimum => 5 }
+  validates :title, :short_description, :language, :price, :level, presence: true
 
-belongs_to :user
+  belongs_to :user
 
-	def to_s
-		title
-	end
+  def to_s
+  	title
+  end
 
-	has_rich_text :description
+  has_rich_text :description
 	
-	extend FriendlyId
+  extend FriendlyId
   friendly_id :title, use: :slugged
 
   LANGUAGES = [:"English", :"bangla", :"Hindi", :"Spanish"]
