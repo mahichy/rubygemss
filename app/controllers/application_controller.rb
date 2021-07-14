@@ -1,9 +1,10 @@
 class ApplicationController < ActionController::Base
 	before_action :authenticate_user!
 
-	include Pundit
+	after_action :user_activity 
 
-  	rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+	include Pundit
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
 
 	include PublicActivity::StoreController
@@ -17,6 +18,10 @@ class ApplicationController < ActionController::Base
 
 
   private
+
+  def user_activity
+  	current_user.try :touch
+  end
 
   def user_not_authorized 
   	# pundit
