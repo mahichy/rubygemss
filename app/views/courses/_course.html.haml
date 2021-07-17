@@ -1,7 +1,7 @@
 .card
   .card-header
   .fa.fa-graduation-cap
-    = link_to course.title, course_path(course)
+    = link_to course.language, course_path(course)
   .card-body
     %small
       = simple_format(course.short_description)
@@ -17,6 +17,9 @@
   .card-footer
     .text-center
       = number_to_currency(course.price)
+  .card-footer
+    .fa.fa-book
+    = course.lessons.count
   .card-footer
     .row
       .col-md-6
