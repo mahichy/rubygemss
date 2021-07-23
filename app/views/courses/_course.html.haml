@@ -27,7 +27,7 @@
         = course.created_at.strftime('%d-%b-%y')
       .col-md-6
         .fa.fa-chalkboard-teacher
-        = course.user.username
+        = link_to course.user.username, user_path(course.user)
         = link_to 'Show', course, class: "btn-btn-sm btn-primary"
         
   - if current_user      
