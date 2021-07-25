@@ -25,6 +25,8 @@ gem 'ransack'
 gem 'public_activity', '~> 1.5.0'
 gem "rolify"
 gem "pundit"
+gem 'exception_notification'
+
 
 
 
