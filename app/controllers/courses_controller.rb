@@ -27,7 +27,6 @@ class CoursesController < ApplicationController
   def new
     @course = Course.new
     authorize @course
-
   end
 
   # GET /courses/1/edit
