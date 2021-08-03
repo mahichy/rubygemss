@@ -1,0 +1,22 @@
+- content_for :title do 
+  Corsego
+  \|
+  New enrollment
+
+
+/ %h1 New enrollment
+
+/ = render 'form'
+
+/ = link_to 'Back', enrollments_path
+
+
+.card
+  .card-header
+    %h3
+      .fa.fa-graduation-cap
+      New enrollment
+.card-body
+  = render 'form'
+.card-footer
+  = link_to 'Back', courses_path
