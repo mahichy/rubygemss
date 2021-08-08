@@ -6,16 +6,16 @@ class LessonPolicy < ApplicationPolicy
   end
 
   def show?
-    @user.has_role?:admin || @record.course.user_id = @user.id
+    @user.has_role?(:admin) || @record.course.user_id = @user.id
 
   end
 
   def edit?
-    @record.course.user_id = @user.id
+    @record.course.user_id == @user.id
   end
 
   def update?
-    @record.course.user_id = @user.id
+    @record.course.user_id == @user.id
   end
 
   def new?
@@ -24,11 +24,11 @@ class LessonPolicy < ApplicationPolicy
 
   def create?
     # @user.has_role?:teacher
-    @record.course.user_id = @user.id
+    @record.course.user_id == @user.id
     
   end
 
   def destroy?
-    @record.course.user_id = @user.id
+    @record.course.user_id == @user.id
   end
 end
