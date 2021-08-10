@@ -4,12 +4,22 @@
   New course
 
 
-.card
-	.card-header
-		%h3
-			.fa.fa-graduation-cap 
-			New course	
-.card-body
-	= render 'form'
+/ .card
+/ 	.card-header
+/ 		%h3
+/ 			.fa.fa-graduation-cap 
+/ 			New course	
+/   .card-body
+/ 	= render 'form'
 
+/ = link_to 'Back', courses_path
+
+.card
+  .card-header
+    %h3
+      .fa.fa-graduation-cap
+      New course
+  .card-body
+  = render 'form'
+  
 = link_to 'Back', courses_path
