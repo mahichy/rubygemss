@@ -18,4 +18,18 @@ module CoursesHelper
 			link_to "check Price", course_path(course), class: "btn btn-md btn-success"
 		end
 	end
+
+	def review_button(course)
+		user_course = course.enrollments.where(user: current_user)
+		if current_user 
+			if user_course.where(user: current_user).any?
+				if user_course.panding_review.any?
+					link_to 'Add A Review', edit_enrollment_path(user_course.first )
+				else
+					"You have left a review. Thanks!"
+					link_to 'Thanks for Reviewing! Your Review', enrollment_path(user_course.first)
+				end
+			end
+		end
+	end
 end
