@@ -12,6 +12,17 @@
           = link_to courses_path, class: 'nav-link' do
             .fa.fa-graduation-cap
             Courses
+
+        .form-inline      
+          /search in navbar
+          = search_form_for @ransack_courses, as: :courses_search, url: courses_path do |f|
+            .input-group
+              = f.search_field :title_cont, class: 'form-control-sm', style: 'float: left; width: 150px;'
+              %span.input-group-append
+                %button.btn.btn-primary.btn-sm{:type => "submit" }
+                %span.fa.fa-search{"aria-hidden" => true} 
+      %ul.navbar-nav.mr-auto
+
         / %li.nav-item{class: "#{'active font-weight-bold' if current_page?(new_course_path)}"}
         /   = link_to new_course_path, class: 'nav-link' do
         /     .fa.fa-plus
@@ -26,10 +37,22 @@
         /     Enrollments
       
 
+        - if current_user.has_role?(:student)  
+          %li.nav-item.dropdown
+            %a#studentDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "data-bs-toggle" => "dropdown", :href => "#", :role => "button"}
+              .fa.fa-graduation-cap
+              Learn
+            .dropdown-menu.dropdown-menu-right{"aria-labelledby" => "studentDropdown"}
+            / = link_to new_course_path, class: "dropdown-item" do 
+            /   .fa.fa-plus
+            /   New Course
+
+
         - if current_user.has_role?(:teacher)  
           %li.nav-item.dropdown
             %a#teacherDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "data-bs-toggle" => "dropdown", :href => "#", :role => "button"}
-              Teacher
+              %i.fas.fa-chalkboard-teacher
+              Teach
             .dropdown-menu.dropdown-menu-right{"aria-labelledby" => "teacherDropdown"}
             = link_to new_course_path, class: "dropdown-item" do 
               .fa.fa-plus
@@ -44,6 +67,7 @@
           %li.nav-item.dropdown
             %a#adminDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "data-bs-toggle" => "dropdown", :href => "#", :role => "button"}
               Admin
+              %i.fad.fa-users-crown
             .dropdown-menu.dropdown-menu-right{"aria-labelledby" => "adminDropdown"}
             = link_to users_path, class: "dropdown-item" do 
               .fa.fa-users
@@ -51,7 +75,7 @@
             = link_to enrollments_path, class: "dropdown-item" do 
               .fa.fa-lock-open
               Enrollments 
-            = link_to home_activity_path, method: :delete, class: "dropdown-item" do 
+            = link_to activity_path, class: "dropdown-item" do 
               .fa.fa-bell
               Activity
 
@@ -64,22 +88,16 @@
 
 
 
-        /search in navbar
-        = search_form_for @ransack_courses, as: :courses_search, url: courses_path do |f|
-          .input-group
-            = f.search_field :title_cont, class: 'form-control-sm', style: 'float: left; width: 150px;'
-            %span.input-group-append
-              %button.btn.btn-primary.btn-sm{:type => "submit" }
-              %span.fa.fa-search{"aria-hidden" => true}  
+         
 
 
 
       
       %ul.navbar-nav.mr-right
-        %li.nav-item{class: "#{'active font-weight-bold' if current_page?(home_activity_path)}"}
-          / = link_to home_activity_path, class: 'nav-link' do
-          /   .fa.fa-bell
-          /   Activity
+        / %li.nav-item{class: "#{'active font-weight-bold' if current_page?(activity_path)}"}
+        /   = link_to activity_path, class: 'nav-link' do
+        /     .fa.fa-bell
+        /     Activity
 
         
 
