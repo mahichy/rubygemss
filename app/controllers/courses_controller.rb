@@ -12,11 +12,35 @@ class CoursesController < ApplicationController
 
 
     # end
-      @ransack_courses = Course.ransack(params[:courses_search], search_key: :courses_search) #navbar_search
+      @ransack_path = courses_path
+
+      @ransack_courses = Course..joins(:enrollments).where(enrollments: {user: current_user}).ransack(params[:courses_search], search_key: :courses_search) #navbar_search
       # @courses = @ransack_courses.result.includes(:user)
 
       @pagy, @courses = pagy(@ransack_courses.result.includes(:user))
   end
+
+  def purchased
+    @ransack_path = purchased_courses_path
+    @ransack_courses = Course.ransack(params[:courses_search], search_key: :courses_search)
+    @pagy, @courses = pagy(@ransack_path.result.includes(:user))
+    render "index"
+  end
+
+  def panding_review
+    @ransack_path = panding_review_courses_path
+
+    @pagy,@courses = pagy(Course.joins(:enrollments).merge(Enrollment.panding_review.where(user: current_user)))
+    render "index"
+  end
+
+  def created
+    @ransack_path = created_courses_path
+
+    @pagy,@courses = pagy(Course.where(user: current_user))
+    render "index"
+  end
+
 
   # GET /courses/1 or /courses/1.json
   def show
