@@ -10,6 +10,13 @@ class EnrollmentsController < ApplicationController
      @pagy, @enrollments = pagy(@q.result.includes(:user))
   end
 
+  def my_students
+    @q = Enrollment.joins(:course).where(courses: {user: current_user}).ransack(params[:q])
+    @pagy, @enrollments = pagy(@q.result.includes(:user))
+    render 'index'
+  end
+
+
   def show
   end
 

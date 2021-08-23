@@ -27,6 +27,12 @@ class CoursesController < ApplicationController
     render 'index'
   end
 
+  def created
+    @pagy, @courses = pagy(Course.where(user: current_user))
+    render 'index'
+  end
+
+
   # GET /courses/1 or /courses/1.json
   def show
     @lessons = @course.lessons
