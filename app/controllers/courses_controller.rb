@@ -14,8 +14,12 @@ class CoursesController < ApplicationController
     # end
       @ransack_courses = Course.ransack(params[:courses_search], search_key: :courses_search) #navbar_search
       # @courses = @ransack_courses.result.includes(:user)
-
       @pagy, @courses = pagy(@ransack_courses.result.includes(:user))
+  end
+
+  def purchased
+    @pagy, @courses = pagy(Course.joins(:enrollments).where(enrollments: {user: current_user }))
+    render 'index'
   end
 
   # GET /courses/1 or /courses/1.json
