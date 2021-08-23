@@ -46,6 +46,9 @@
             = link_to purchased_courses_path, class: "dropdown-item" do 
               .fa.fa-graduation-cap
               Purchased courses
+            = link_to pending_review_courses_path, class: "dropdown-item" do 
+              .fa.fa-graduation-cap
+              Pending Review
 
 
         - if current_user.has_role?(:teacher)  

@@ -22,6 +22,11 @@ class CoursesController < ApplicationController
     render 'index'
   end
 
+  def pending_review
+    @pagy, @courses = pagy(Course.joins(:enrollments).merge(Enrollment.pending_review.where(user: current_user)))
+    render 'index'
+  end
+
   # GET /courses/1 or /courses/1.json
   def show
     @lessons = @course.lessons
