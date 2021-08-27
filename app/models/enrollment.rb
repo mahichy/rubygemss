@@ -27,6 +27,7 @@ class Enrollment < ApplicationRecord
   after_save do
     unless rating.nil? || rating.zero?
       course.update_rating
+    end
   end
 
   after_destroy do 
@@ -38,10 +39,11 @@ class Enrollment < ApplicationRecord
 
   def cant_subscribe_to_own_course
     if self.new_record?
-      if user_id == course.user_id
-        errors.add(:base, "You can't subscribe to your own course")
+      if self.user_id.present?
+        if self.user_id == course.user_id
+          errors.add(:base, "You can't subscribe to your own course")
+        end
       end
     end
   end
-end
 end
